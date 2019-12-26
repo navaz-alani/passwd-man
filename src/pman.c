@@ -74,7 +74,6 @@ void new_creds(struct pman *p)
         goto panic;
     }
 
-    printf("fname: %s\n", fname);
     FILE *new_acct = fopen(fname, "w");
 
     if (!new_acct)

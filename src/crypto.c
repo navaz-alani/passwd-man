@@ -54,9 +54,7 @@ char *__hash__(char *txt, char *salt)
 bool new_mpwd(char *mpwd)
 {
     char *salt = __salt__();
-    printf("new salt: %s\n", salt);
     char *mp_hash = __hash__(mpwd, salt);
-    printf("new hash: %s\n", mp_hash);
 
     FILE *pwd_file = fopen(MPASS_FILE, "w");
 

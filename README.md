@@ -18,3 +18,7 @@ and run `make build`. This will produce an executable called
 
 Adding the project directory to the system `$PATH` variable
 will allow the user to call the program from any directory.
+
+Once the program has been built, the user may run it by running
+`./passwd-man` in the project directory, or just `passwd-man` if
+the previous step has been done.

@@ -9,13 +9,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Python dependencies, add alias.
-      run: |
-        chmod +x $(pwd)/setup.sh 
-        .$(pwd)/setup.sh
+    # - name: Set up Python dependencies, add alias.
+    #   run: |
+    #     chmod +x $(pwd)/setup.sh 
+    #     .$(pwd)/setup.sh
     - name: Compile 
       run: make
-#     - name: make check
-#       run: make check
-#     - name: make distcheck
-#       run: make distcheck

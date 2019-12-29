@@ -1,5 +1,8 @@
 # `passwd-man`: A Command Line Password Manager
 
+[![CodeFactor](https://www.codefactor.io/repository/github/navaz-alani/passwd-man/badge/master)](https://www.codefactor.io/repository/github/navaz-alani/passwd-man/overview/master)
+[![Build Status](https://travis-ci.org/navaz-alani/passwd-man.svg?branch=master)](https://travis-ci.org/navaz-alani/passwd-man)
+
 `pman` is a command line utility to manage credentials.
 It is available for MacOS and is yet to be tested on Linux.
 
@@ -14,7 +17,7 @@ desired compiler in the `Makefile`.
 
 In order to build `passwd-man`, `cd` into the project folder
 and run `make build`. This will produce an executable called
-`passwd-man.
+`passwd-man`.
 
 Adding the project directory to the system `$PATH` variable
 will allow the user to call the program from any directory.

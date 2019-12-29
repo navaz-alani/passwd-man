@@ -103,6 +103,16 @@ panic:
     free(pwd);
 }
 
+void rm_nl(char *str)
+{
+    while (*str)
+    {
+        if (*str == '\n')
+            *str = '\0';
+        ++str;
+    }
+}
+
 void retrieve_creds(struct pman *p, char *acct_name)
 {
     if (!(p && acct_name))
@@ -133,7 +143,6 @@ void retrieve_creds(struct pman *p, char *acct_name)
     char *pwd_enc = readline(new_acct);
     char *pwd = __dec__(pwd_enc, p->master_pwd);
     // make up for newline
-    pwd[strlen(pwd) - 1] = '\0';
     free(pwd_enc);
 
     if (fclose(new_acct))
@@ -141,6 +150,8 @@ void retrieve_creds(struct pman *p, char *acct_name)
     free(fname);
 
     printf("\t[%s] UserID: %s\n", acct_name, uid);
+
+    rm_nl(pwd);
 
     if (copy_to_clipboard(pwd))
         printf("\tPassword copied to clipboard!\n");
@@ -261,7 +272,6 @@ void edit_creds(struct pman *p, char *acct_name)
         {
             printf("ERROR [ACCT_EDIT-acct_name]: Failed to change account name!\n");
             free(new_acct_name);
-            free(acct_name);
             free(new_fname);
             return;
         }
@@ -269,11 +279,12 @@ void edit_creds(struct pman *p, char *acct_name)
         system(cmd);
         printf("INFO [ACCT_EDIT-acct_name]: Account name for '%s' changed to '%s'\n",
                acct_name, new_acct_name);
+
+        free(cmd);
+        free(new_fname);
     }
-    else
-    {
-        free(new_acct_name);
-    }
+
+    free(new_acct_name);
 }
 
 void delete_creds(struct pman *p, char *acct_name)

@@ -6,6 +6,7 @@
 # Program files
 passwd-man
 src/creds/*
+test
 
 ### C ###
 # Prerequisites
